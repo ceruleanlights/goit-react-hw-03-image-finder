@@ -6,9 +6,7 @@ import ImageGallery from './ImageGallery/ImageGallery';
 import Button from './Button/Button';
 import Loader from './Loader/Loader';
 
-import styles from './App.module.css';
 import Modal from './Modal/Modal';
-// import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 export class App extends Component {
   state = {
