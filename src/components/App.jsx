@@ -42,6 +42,7 @@ export class App extends Component {
           currentPage: currentPage + 1,
         }))
       )
+      .catch(error => this.setState({ error }))
       .finally(() => this.setState({ loading: false }));
   };
 
@@ -69,11 +70,25 @@ export class App extends Component {
   };
 
   render() {
-    const { images, loading, selectedImg, showModal } = this.state;
+    const { images, loading, selectedImg, showModal, error } = this.state;
     const conditionForRender = images.length > 0;
     return (
       <div>
         <Searchbar onSubmit={this.handleSubmitQuery} />
+        {error && (
+          <div
+            style={{
+              height: '100vh',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: 40,
+              color: '#010101',
+            }}
+          >
+            Oooops, something went wrong! Try again!
+          </div>
+        )}
         {conditionForRender && (
           <ImageGallery images={images} setLargeImg={this.setLargeImg} />
         )}
