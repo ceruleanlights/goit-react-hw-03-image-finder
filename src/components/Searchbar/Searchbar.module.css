@@ -52,6 +52,10 @@
   opacity: 1;
 }
 
+.SearchFormButton:disabled {
+  cursor: not-allowed;
+}
+
 .SearchFormButtonLabel {
   position: absolute;
   width: 1px;
