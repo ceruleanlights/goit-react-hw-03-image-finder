@@ -70,13 +70,14 @@ export class App extends Component {
 
   render() {
     const { images, loading, selectedImg, showModal } = this.state;
+    const conditionForRender = images.length > 0;
     return (
       <div>
         <Searchbar onSubmit={this.handleSubmitQuery} />
-        {images.length > 0 && (
+        {conditionForRender && (
           <ImageGallery images={images} setLargeImg={this.setLargeImg} />
         )}
-        {images.length > 0 && <Button loadMore={this.loadImages} />}
+        {conditionForRender && <Button loadMore={this.loadImages} />}
         {loading && <Loader />}
         {showModal && (
           <Modal largeImgUrl={selectedImg} onClose={this.toggleModal} />
