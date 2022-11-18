@@ -1,9 +1,15 @@
 import styles from './Searchbar.module.css';
 import { Component } from 'react';
 
+import PropTypes from 'prop-types';
+
 class Searchbar extends Component {
   state = {
     input: '',
+  };
+
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
   };
 
   handleInputChange = e => {

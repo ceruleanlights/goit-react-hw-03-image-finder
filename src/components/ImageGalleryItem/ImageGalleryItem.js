@@ -1,5 +1,7 @@
 import styles from './ImageGalleryItem.module.css';
 
+import PropTypes from 'prop-types';
+
 const ImageGalleryItem = props => {
   const { image, tags, setLargeImg, largeImageURL } = props;
   return (
@@ -12,6 +14,13 @@ const ImageGalleryItem = props => {
       />
     </li>
   );
+};
+
+ImageGalleryItem.propTypes = {
+  image: PropTypes.string,
+  tags: PropTypes.string,
+  largeImageURL: PropTypes.string.isRequired,
+  setLargeImg: PropTypes.func.isRequired,
 };
 
 export default ImageGalleryItem;

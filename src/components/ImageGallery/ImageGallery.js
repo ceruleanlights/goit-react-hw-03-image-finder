@@ -1,4 +1,5 @@
 import styles from './ImageGallery.module.css';
+import PropTypes from 'prop-types';
 
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 
@@ -19,6 +20,18 @@ const ImageGallery = props => {
       })}
     </ul>
   );
+};
+
+ImageGallery.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      webformatURL: PropTypes.string,
+      tags: PropTypes.string,
+      largeImageURL: PropTypes.string.isRequired,
+    })
+  ),
+  setLargeImg: PropTypes.func.isRequired,
 };
 
 export default ImageGallery;
